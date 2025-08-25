@@ -1,0 +1,17 @@
+services:
+  - type: worker
+    name: crypto-signal-bot
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python crypto_signal_bot.py"
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: DEFAULT_PAIRS
+        value: BTC/USDT,ETH/USDT,SOL/USDT
+      - key: DEFAULT_TIMEFRAME
+        value: 1h
+      - key: USE_FUNDAMENTALS
+        value: true
+      - key: FEAR_GREED_FILTER
+        value: true
